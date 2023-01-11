@@ -17,7 +17,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return Usuario::all()->where('estado', 1);
+        $usuario = Usuario::where('estado', 1)->get()->toArray();
+        return response()->json($usuario);
     }
 
     /**
@@ -40,7 +41,8 @@ class UsuarioController extends Controller
         $usuario->tipo = $request->tipo;
         $usuario->usuario = $request->usuario;
         $usuario->clave = $request->clave;
-        $usuario->estado = $request->estado;
+        $usuario->tipo_impresion = $request->tipo_impresion;
+        $usuario->estado = 1;
 
         $usuario->save();
 
@@ -80,8 +82,8 @@ class UsuarioController extends Controller
         $usuario->cargo = $request->cargo;
         $usuario->tipo = $request->tipo;
         $usuario->usuario = $request->usuario;
+        $usuario->tipo_impresion = $request->tipo_impresion;
         $usuario->clave = $request->clave;
-        $usuario->estado = $request->estado;
 
         $usuario->save();
 

@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('monedas', function (Blueprint $table) {
+        Schema::create('tipo_documentos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('abreviatura');
-            $table->string('simbolo');
+            $table->string('serie');
+            $table->string('descripcion_caja');
+            $table->string('ip_mask');
             $table->string('estado');
+            $table->string('estatus');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monedas');
+        Schema::dropIfExists('tipo_documentos');
     }
 };

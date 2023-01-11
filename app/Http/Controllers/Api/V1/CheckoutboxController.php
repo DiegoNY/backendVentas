@@ -41,7 +41,7 @@ class CheckoutboxController extends Controller
 
         return response()->json(
 
-            ['message', 'save'],
+            ['message' => 'save'],
             Response::HTTP_ACCEPTED
 
         );

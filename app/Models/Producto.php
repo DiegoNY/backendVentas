@@ -23,6 +23,10 @@ class Producto extends Model
         "descuento",
         "venta_sujeta",
         "foto_producto",
-        "estado"
+        "estado",
+        "fecha_registro",
+        "codigo_barras",
+        "estatus",
+        "descuento"
     ];
 }

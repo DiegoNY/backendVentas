@@ -41,6 +41,14 @@
 
     Route::apiResource('v1/moneda', App\Http\Controllers\Api\V1\MonedaController::class);
 
+    Route::apiResource('v1/procesos', App\Http\Controllers\Api\V1\ProcesosController::class);
+
+    Route::apiResource('v1/laboratorio', App\Http\Controllers\Api\V1\LaboratorioController::class);
+
+    Route::apiResource('v1/tipo_documento', App\Http\Controllers\Api\V1\TipoDocumentoController::class);
+
+
+
     /**
      * login cotroller
      */

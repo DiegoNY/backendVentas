@@ -18,7 +18,8 @@ class MonedaController extends Controller
      */
     public function index()
     {
-        return Moneda::all()->where('estado', 1);
+        $moneda = Moneda::where('estado', 1)->get()->toArray();
+        return response()->json($moneda);
     }
 
     /**

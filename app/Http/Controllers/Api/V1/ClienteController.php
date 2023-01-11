@@ -17,7 +17,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return Cliente::all()->where('estado', 1);
+        $clientes = Cliente::where('estado', 1)->get()->toArray();
+        return response()->json($clientes);
     }
 
     /**
@@ -29,7 +30,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $cliente = new Cliente;
-        $cliente->dni = $request->dni;
+        $cliente->dni = $request->dni_ruc;
         $cliente->descripcion = $request->descripcion;
         $cliente->correo = $request->correo;
         $cliente->telefono = $request->telefono;

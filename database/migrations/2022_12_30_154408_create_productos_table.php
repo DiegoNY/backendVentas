@@ -27,6 +27,10 @@ return new class extends Migration
             $table->string('venta_sujeta');
             $table->string('foto_producto');
             $table->string('estado');
+            $table->string('estatus');
+            $table->string('fecha_registro');
+            $table->string('codigo_barras');
+            $table->string('descuento');
             $table->timestamps();
         });
     }

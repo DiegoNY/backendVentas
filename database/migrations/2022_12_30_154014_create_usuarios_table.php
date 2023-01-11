@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('usuario');
             $table->string('clave');
             $table->string('estado');
+            $table->string('tipo_impresion');
             $table->timestamps();
         });
     }

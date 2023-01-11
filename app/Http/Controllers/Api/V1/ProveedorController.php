@@ -16,8 +16,10 @@ class ProveedorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return Proveedor::all()->where('estado', 1);
+    {   
+
+        $proveedor = Proveedor::where('estado', 1)->get()->toArray();
+        return response()->json($proveedor);
     }
 
     /**
@@ -36,7 +38,7 @@ class ProveedorController extends Controller
         $proveedor->telefono = $request->telefono;
         $proveedor->direccion = $request->direccion;
         $proveedor->correo = $request->correo;
-        $proveedor->estado = $request->estado;
+        $proveedor->estado = 1;
 
         $proveedor->save();
 
@@ -74,7 +76,6 @@ class ProveedorController extends Controller
         $proveedor->telefono = $request->telefono;
         $proveedor->direccion = $request->direccion;
         $proveedor->correo = $request->correo;
-        $proveedor->estado = $request->estado;
 
         $proveedor->save();
 

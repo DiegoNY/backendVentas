@@ -16,10 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\Checkoutbox::factory()->create([
+        \App\Models\Checkoutbox::factory(10)->create([
             'point' => '22222',
             'money' => '123',
             'user' => 'administrador',
+            'dni' => '1234556',
             'estado' => '1' //password
         ]);
     }

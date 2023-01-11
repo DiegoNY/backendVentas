@@ -5,24 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class Usuario extends Model
+class Laboratorio extends Model
 {
     use HasFactory;
-
 
     protected $connection = 'mongodb';
 
     protected $fillable = [
-        "dni",
+        "ruc",
         "nombre",
-        "email",
+        "abreviatura",
         "telefono",
-        "fecha_ingreso",
-        "cargo",
-        "tipo",
-        "usuario",
-        "clave",
-        "estado",
-        "tipo_impresion"
+        "direccion",
+        "correo",
+        "estado"
     ];
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Symfony\Component\HttpFoundation\Response;
 
 
@@ -17,7 +18,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return Producto::all()->where('estado', 1);
+        $productos = Producto::where('estatus', "1")->get()->toArray();
+        return response()->json($productos);
     }
 
     /**
@@ -36,9 +38,14 @@ class ProductoController extends Controller
         $producto->stock = $request->stock;
         $producto->stock_minimo = $request->stock_minimo;
         $producto->precio_compra = $request->precio_compra;
+        $producto->precio_venta = $request->precio_venta;
         $producto->venta_sujeta = $request->venta_sujeta;
         $producto->foto_producto = $request->foto_producto;
-        $producto->estado = 1;
+        $producto->fecha_registro = Date('d/m/y');
+        $producto->codigo_barras = $request->numero;
+        $producto->estado  = $request->estado;
+        $producto->descuento = $request->descuento;
+        $producto->estatus = "1";
 
         $producto->save();
 
@@ -73,9 +80,13 @@ class ProductoController extends Controller
         $producto->tipo = $request->tipo;
         $producto->stock = $request->stock;
         $producto->stock_minimo = $request->stock_minimo;
+        $producto->precio_venta = $request->precio_venta;
         $producto->precio_compra = $request->precio_compra;
         $producto->venta_sujeta = $request->venta_sujeta;
         $producto->foto_producto = $request->foto_producto;
+        $producto->descuento = $request->descuento;
+        $producto->estado  = $request->estado;
+
 
         $producto->save();
 
@@ -83,7 +94,7 @@ class ProductoController extends Controller
 
             ['result' => $producto],
             Response::HTTP_OK
-        
+
         );
     }
 
@@ -95,7 +106,7 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        $producto->estado = 0;
+        $producto->estatus = "0";
         $producto->save();
 
         return response()->json(
